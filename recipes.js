@@ -9,7 +9,7 @@ xmlhttp.onreadystatechange = function () {
 
 xmlhttp.open(
   'GET',
-  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/3',
+  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/4',
   false
 );
 
@@ -26,9 +26,6 @@ function getRecipeCollection() {
   // We want to randomize the recipces,
   // so that each time we look at it other recipes catch our attention
   // therefore hopefully creating diversity in our nutrition.
-  importedRecipes.sort(function () {
-    return 0.5 - Math.random();
-  });
 
   uniquePriorities = getUniquePriorities();
   uniquePriorities.forEach((priority) => {
@@ -39,7 +36,19 @@ function getRecipeCollection() {
     );
   });
   // Flatten array
+
   recipes = [].concat(...recipes);
+  console.log(recipes);
+
+  recipes.sort(function (a, b) {
+    if (a.recipeName < b.recipeName) {
+      return -1;
+    }
+    if (a.recipeName > b.recipeName) {
+      return 1;
+    }
+    return 0;
+  });
 
   return recipes;
 }
@@ -180,19 +189,18 @@ var vm = new Vue({
         .sort((l, r) => (l.priority >= r.priority ? 1 : -1));
       date = new Date();
       let output =
-        'Menu list from ' +
-        date.toLocaleDateString(undefined, {
-          weekday: 'short',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        }) +
-        ':\n' +
+        // 'Menu list from ' +
+        // date.toLocaleDateString(undefined, {
+        //   weekday: 'short',
+        //   year: 'numeric',
+        //   month: 'long',
+        //   day: 'numeric',
+        // }) +
+        // ':\n' +
         selectedRecipesSorted
           .map((recipe) => recipe.recipeName)
           .join(', ')
-          .toUpperCase() +
-        '\n\n';
+          .toUpperCase() + '\n\n';
       for (var i = 0; i < selectedRecipesSorted.length; i++) {
         output +=
           selectedRecipesSorted[i].recipeName.toUpperCase() +
