@@ -216,13 +216,8 @@ var vm = new Vue({
             selectedRecipesSorted[i].ingredients[j].name +
             '\n';
         }
-        output +=
-          '\n"' +
-          selectedRecipesSorted[i].comment +
-          ' Priority ' +
-          selectedRecipesSorted[i].priority +
-          '"' +
-          '\n\n\n';
+        output += '\n"' + selectedRecipesSorted[i].comment;
+        '"' + '\n\n\n';
       }
       return output;
     },
