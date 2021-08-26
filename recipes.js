@@ -171,7 +171,7 @@ var vm = new Vue({
 
       this.myResult.forEach(function (ingr) {
         str +=
-          '<li><input type="checkbox"><label class="strikethrough">' +
+          '<li><input type="checkbox"><label class="strikethrough"> ' +
           ' ' +
           ingr +
           '</label></li>';

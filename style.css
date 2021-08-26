@@ -29,3 +29,8 @@ input[type='checkbox']:checked + label.strikethrough {
   width: 75%;
   margin-right: auto;
 }
+
+textarea {
+  border: solid 2px #016699;
+  border-radius: 10px;
+}
