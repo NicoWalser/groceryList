@@ -21,6 +21,40 @@ importedRecipes.forEach(function (recipe, index) {
   recipe.selected = false;
 });
 
+window.onload = function changeCat() {
+  var slides = document.getElementsByClassName('recipeItem');
+  for (var i = 0; i < slides.length; i++) {
+    if (slides[i].innerHTML.toString() === ' Asian') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+
+    if (slides[i].innerHTML.toString() === ' Italian') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+    if (slides[i].innerHTML.toString() === ' Greek') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+    if (slides[i].innerHTML.toString() === ' Pizza') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+    if (slides[i].innerHTML.toString() === ' Texmex') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+    if (slides[i].innerHTML.toString() === ' Other') {
+      slides[i].classList.add('categoryClass');
+      slides[i].classList.remove('recipeItem');
+    }
+    if (slides[i].innerHTML.toString() === '  ') {
+      slides[i].classList.add('unclickableSec');
+    }
+  }
+};
+
 function getRecipeCollection() {
   recipes = [];
   // We want to randomize the recipces,
@@ -31,7 +65,6 @@ function getRecipeCollection() {
   uniquePriorities.forEach((priority) => {
     recipes.push(
       importedRecipes.filter(function (recipe) {
-        console.log(recipe.category);
         return recipe.priority == priority;
       })
     );
@@ -101,7 +134,7 @@ Vue.component('my-meal', {
     },
   },
   template:
-    '<a href="javascript:void(0);" class="list-group-item list-group-item-action" v-bind:class="{active: recipes[index].selected}" v-on:click="toggleSelectedRecipe"> {{ recipe.recipeName }}</a>',
+    '<a href="javascript:void(0);" class="list-group-item list-group-item-action recipeItem" v-bind:class="{active: recipes[index].selected}" v-on:click="toggleSelectedRecipe"> {{ recipe.recipeName }}</a>',
 });
 
 /* ---------- VUE instance ------------*/

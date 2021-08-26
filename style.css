@@ -1,3 +1,31 @@
 input[type='checkbox']:checked + label.strikethrough {
   text-decoration: line-through;
 }
+
+.categoryClass {
+  background-color: #016699;
+  /* border: solid 2px black; */
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  font-family: cuteFrog;
+  pointer-events: none;
+  border-radius: 25px !important;
+  margin-bottom: 1px;
+}
+
+@font-face {
+  font-family: cuteFrog;
+  src: url('./CUTEFROG.otf') format('opentype');
+}
+
+.unclickableSec {
+  pointer-events: none;
+}
+.recipeItem {
+  margin-left: auto;
+  width: 75%;
+  margin-right: auto;
+}
