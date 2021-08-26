@@ -9,7 +9,7 @@ xmlhttp.onreadystatechange = function () {
 
 xmlhttp.open(
   'GET',
-  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/5',
+  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/7',
   false
 );
 
@@ -41,10 +41,10 @@ function getRecipeCollection() {
   console.log(recipes);
 
   recipes.sort(function (a, b) {
-    if (a.recipeName < b.recipeName) {
+    if (a.category < b.category) {
       return -1;
     }
-    if (a.recipeName > b.recipeName) {
+    if (a.category > b.category) {
       return 1;
     }
     return 0;
