@@ -9,7 +9,7 @@ xmlhttp.onreadystatechange = function () {
 
 xmlhttp.open(
   'GET',
-  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/7',
+  'https://api.jsonbin.io/b/60d38b9c8a4cd025b7a42c2d/14',
   false
 );
 
@@ -31,6 +31,7 @@ function getRecipeCollection() {
   uniquePriorities.forEach((priority) => {
     recipes.push(
       importedRecipes.filter(function (recipe) {
+        console.log(recipe.category);
         return recipe.priority == priority;
       })
     );
@@ -38,7 +39,6 @@ function getRecipeCollection() {
   // Flatten array
 
   recipes = [].concat(...recipes);
-  console.log(recipes);
 
   recipes.sort(function (a, b) {
     if (a.category < b.category) {
